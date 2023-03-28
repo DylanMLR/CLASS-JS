@@ -84,29 +84,35 @@
 // groschat.parler();
 
 class Voiture {
-    constructor(nom, marque, modele, année, couleur, carburant) {
+    constructor(nom, marque, modele, année) {
         this.nom = nom;
         this.marque = marque;
         this.modele = modele;
         this.année = année;
+    }
+    parler() {
+        document.write(`${this.nom} Voiture = ${this.marque} Ford / ${this.modele} Fiesta / ${this.année} 2015 <br>`);
+    }
+}
+
+class Autres extends Voiture {
+    constructor(couleur, carburant) {
         this.couleur = couleur;
         this.carburant = carburant;
-    }
-    parler() {
-        document.write(`${this.nom} Ford / ${this.marque} Fiesta / ${this.modele} 2015 <br> ${this.année}`);
+        document.write(`${this.couleur} Noir / ${this.carburant} Diesel <br>`);
     }
 }
-
-class autres extends Voiture {
-    parler() {
-        super.parler()
-        document.write(`${this.couleur} Carburant : ${this.carburant} Diesel`);
+class Proprio extends Voiture {
+    constructor(proprietaire,achat, prix) {
+        this.proprietaire = proprietaire;
+        this.achat = achat;
+        this.prix = prix;
+        document.write(`${this.proprietaire} Dylan / ${this.achat} Juin 2023 / ${this.prix} 1500 `);
     }
 }
-
-
-
-
-
-let ford = new autres("Marque : ", "Modele : ", "Année : ", "Couleur :", " Noir /")
+let rop = new Voiture("", " Marque : ", "Modele : ", "Année :");
+let ford = new Autres(" Couleur :", "Carburant :");
+let donnée = new Proprio("proprietaire :", "achat :", "prix :");
+rop.parler();
 ford.parler();
+donnée.parler();
